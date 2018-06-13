@@ -1,0 +1,18 @@
+<ul class="list-group">
+    <li *ngFor="let book of (books$ | async); let i=index" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{book.title}}</h5>
+            <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-secondary" (click)="editBook(i)">edit</button>
+                <button type="button" class="btn btn-secondary" (click)="deleteBook(i)">delete</button>
+            </div>
+        </div>
+        <p class="mb-1">{{book.review}}</p>
+        <small>Published at:
+            <b>{{book.publishedAt.year}}-{{book.publishedAt.month}}-{{book.publishedAt.day}}</b>
+        </small>/
+        <small>Added at:
+            <b>{{book.addedAt.year}}-{{book.addedAt.month}}-{{book.addedAt.day}}</b>
+        </small>
+    </li>
+</ul>
